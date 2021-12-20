@@ -8,13 +8,8 @@ const PORT = 8081;
 const app = express();
 const server = http.createServer(app);
 const io = geckos();
-const corsOptions ={
-   origin:'*', 
-   credentials:true,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
-}
+app.use(cors()) 
 
-app.use(cors(corsOptions)) 
 let counter = 0;
 io.addServer(server);
 let onlineUsers = [{
